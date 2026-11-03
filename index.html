@@ -60,7 +60,13 @@
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
     </style>
-</head>
+</head><style>
+  /* Déblocage tactile pour tablettes */
+  button, a, input, div[class*="rounded"] {
+    touch-action: manipulation !important;
+    pointer-events: auto !important;
+  }
+</style>
 <body class="antialiased selection:bg-soft-rose selection:text-bronze">
 
     <!-- Announcement Bar -->
@@ -230,14 +236,7 @@
                     <h2 class="font-serif-title text-3xl sm:text-4xl font-bold text-bronze">Sample Your Skin Profile</h2>
                     <p class="text-warm-gray text-sm">Select your skin type below to see a instant sneak peek of what your personalized diagnostic breakdown looks like!</p>
                 </div>
-#results-screen, .ml-embedded {
-  display: none;
-  pointer-events: none; /* Prevents hidden container from blocking touches */
-}
-#results-screen.active {
-  display: block;
-  pointer-events: auto;
-}
+
 <button type="button" class="quiz-option" onclick="nextQuestion(this)">Option Text</button>
                 <!-- Skin Type Selector Tabs -->
                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -576,3 +575,4 @@
 </body>
 </html>
 
+    }
