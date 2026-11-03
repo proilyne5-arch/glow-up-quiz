@@ -230,7 +230,15 @@
                     <h2 class="font-serif-title text-3xl sm:text-4xl font-bold text-bronze">Sample Your Skin Profile</h2>
                     <p class="text-warm-gray text-sm">Select your skin type below to see a instant sneak peek of what your personalized diagnostic breakdown looks like!</p>
                 </div>
-
+#results-screen, .ml-embedded {
+  display: none;
+  pointer-events: none; /* Prevents hidden container from blocking touches */
+}
+#results-screen.active {
+  display: block;
+  pointer-events: auto;
+}
+<button type="button" class="quiz-option" onclick="nextQuestion(this)">Option Text</button>
                 <!-- Skin Type Selector Tabs -->
                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
                     <button onclick="selectSkinType('dry')" id="btn-dry" class="skin-tab-btn py-3 px-4 rounded-xl border border-soft-rose font-medium text-xs sm:text-sm text-bronze bg-blush shadow-sm transition-all text-center">
@@ -567,6 +575,4 @@
     </script>
 </body>
 </html>
-</style>/* Correction du blocage des clics sur tablette et mobile */
-    #results-screen, .ml-embedded {
-      pointer-events: auto !important;
+
