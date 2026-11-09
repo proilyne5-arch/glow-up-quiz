@@ -9,6 +9,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
 
+  <!-- Vos codes couleur d'origine (Palette Crème & Bronze raffinée) -->
   <script>
     tailwind.config = {
       theme: {
@@ -19,7 +20,8 @@
             'soft-rose': '#E8D8CE',
             'warm-gray': '#786C66',
             'sand': '#F2ECE4',
-            'blush': '#FDFBF7'
+            'blush': '#FDFBF7',
+            'terracotta': '#B87D56'
           }
         }
       }
@@ -60,7 +62,9 @@
 
   <!-- EN-TÊTE DE LA PAGE -->
   <header class="py-6 px-4 sm:px-6 max-w-7xl mx-auto flex items-center justify-between">
-    <span class="font-bold tracking-tight text-bronze text-lg">The Pretty Plan Hub</span>
+    <div class="flex items-center gap-2">
+      <span class="font-bold tracking-tight text-bronze text-lg">The Pretty Plan Hub</span>
+    </div>
     <a href="#quiz-card-wrapper" class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider bg-bronze text-cream px-4 py-2 rounded-full shadow-sm hover:opacity-90 transition">
       Start Quiz <i data-lucide="arrow-right" class="w-4 h-4"></i>
     </a>
@@ -93,12 +97,12 @@
 
         <!-- CADRE DU QUIZ (TABLETTE) -->
         <div id="quiz-card-wrapper" class="lg:col-span-6 flex justify-center">
-          <div class="w-full max-w-md bg-cream rounded-[1.75rem] p-5 space-y-4 text-bronze border border-soft-rose/50 shadow-xl">
+          <div class="w-full max-w-md bg-white rounded-[1.75rem] p-6 space-y-4 text-bronze border border-soft-rose/50 shadow-2xl">
             
             <!-- EN-TÊTE DU QUIZ -->
-            <div id="quiz-header" class="border-b border-soft-rose/60 pb-3">
+            <div id="quiz-header" class="border-b border-soft-rose/40 pb-3">
               <span class="text-[10px] font-bold tracking-widest uppercase text-warm-gray block">THE PRETTY PLAN HUB</span>
-              <h2 class="font-serif-title text-lg font-bold text-bronze leading-tight">Glow Up Skin Diagnostic</h2>
+              <h2 class="text-lg font-bold text-bronze leading-tight">Glow Up Skin Diagnostic</h2>
               <div class="flex items-center justify-between text-[11px] text-warm-gray mt-1">
                 <span id="progress-text">Progress: 1 of 3 Questions</span>
                 <span id="progress-percent" class="font-semibold text-bronze">33%</span>
@@ -110,24 +114,24 @@
 
             <!-- ÉCRAN DU QUIZ (QUESTIONS & BOUTONS TACTILES) -->
             <div id="quiz-screen" class="space-y-4">
-              <div class="bg-white p-4 rounded-xl border border-soft-rose/40 shadow-sm space-y-3">
+              <div class="bg-blush p-4 rounded-xl border border-soft-rose/40 shadow-sm space-y-3">
                 <p id="question-text" class="text-sm font-bold text-bronze">Question 1: What is your primary skin goal?</p>
                 <div id="options-container" class="space-y-2 text-xs"></div>
               </div>
             </div>
 
-            <!-- ÉCRAN DE RÉSULTATS & FORMULAIRE MAILERLITE -->
+            <!-- ÉCRAN DE RÉSULTATS & FORMULAIRE MAILERLITE CORRIGÉ -->
             <div id="results-screen" class="space-y-4 text-center">
-              <div class="bg-white p-5 rounded-xl border border-soft-rose/40 shadow-sm space-y-3">
-                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-soft-rose/40 text-bronze mb-1">
-                  <i data-lucide="sparkles" class="w-5 h-5"></i>
+              <div class="bg-blush p-5 rounded-xl border border-soft-rose/40 shadow-sm space-y-3">
+                <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-soft-rose/50 text-bronze mb-1 mx-auto">
+                  <i data-lucide="sparkles" class="w-6 h-6"></i>
                 </div>
                 <h3 class="text-base font-bold text-bronze">✨ Your Skin Diagnostic is Complete!</h3>
-                <p class="text-xs text-warm-gray leading-relaxed mb-4">
+                <p class="text-xs text-warm-gray leading-relaxed mb-3">
                   Enter your details below to unlock your custom breakdown and receive your <strong>Free 30-Day Routine Tracker PDF</strong> immediately in your inbox.
                 </p>
 
-                <!-- FORMULAIRE MAILERLITE -->
+                <!-- CONTENEUR INTÉGRÉ MAILERLITE (Correction de l'affichage direct) -->
                 <div class="ml-embedded" data-form="lVGT3c"></div>
               </div>
             </div>
@@ -138,7 +142,7 @@
       </div>
     </section>
 
-    <!-- SECTION APERÇU / PREVIEWS (LES BÉNÉFICES DU PLAN) -->
+    <!-- SECTION APERÇU / PREVIEWS AVEC PETITES ILLUSTRATIONS -->
     <section class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="text-center max-w-2xl mx-auto space-y-3 mb-12">
         <h2 class="text-2xl sm:text-3xl font-bold text-bronze">What's Inside Your Glow Up Plan?</h2>
@@ -147,20 +151,26 @@
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <!-- Carte 1 -->
-        <div class="bg-white p-6 rounded-2xl border border-soft-rose/40 shadow-sm space-y-3">
-          <div class="w-10 h-10 rounded-xl bg-cream flex items-center justify-center text-bronze font-bold">01</div>
+        <div class="bg-white p-6 rounded-2xl border border-soft-rose/40 shadow-sm space-y-3 hover:shadow-md transition">
+          <div class="w-12 h-12 rounded-2xl bg-cream flex items-center justify-center text-bronze">
+            <i data-lucide="sun" class="w-6 h-6"></i>
+          </div>
           <h3 class="font-bold text-base text-bronze">Tailored AM/PM Routine</h3>
           <p class="text-xs text-warm-gray leading-relaxed">Stop wasting money on random products. Get a step-by-step morning and evening regimen matched precisely to your skin barrier needs.</p>
         </div>
         <!-- Carte 2 -->
-        <div class="bg-white p-6 rounded-2xl border border-soft-rose/40 shadow-sm space-y-3">
-          <div class="w-10 h-10 rounded-xl bg-cream flex items-center justify-center text-bronze font-bold">02</div>
+        <div class="bg-white p-6 rounded-2xl border border-soft-rose/40 shadow-sm space-y-3 hover:shadow-md transition">
+          <div class="w-12 h-12 rounded-2xl bg-cream flex items-center justify-center text-bronze">
+            <i data-lucide="droplets" class="w-6 h-6"></i>
+          </div>
           <h3 class="font-bold text-base text-bronze">Ingredient Masterclass</h3>
           <p class="text-xs text-warm-gray leading-relaxed">Learn which active ingredients work harmoniously for your specific skin goals, and which ones to avoid mixing together.</p>
         </div>
         <!-- Carte 3 -->
-        <div class="bg-white p-6 rounded-2xl border border-soft-rose/40 shadow-sm space-y-3">
-          <div class="w-10 h-10 rounded-xl bg-cream flex items-center justify-center text-bronze font-bold">03</div>
+        <div class="bg-white p-6 rounded-2xl border border-soft-rose/40 shadow-sm space-y-3 hover:shadow-md transition">
+          <div class="w-12 h-12 rounded-2xl bg-cream flex items-center justify-center text-bronze">
+            <i data-lucide="file-text" class="w-6 h-6"></i>
+          </div>
           <h3 class="font-bold text-base text-bronze">30-Day Tracker PDF</h3>
           <p class="text-xs text-warm-gray leading-relaxed">Build lasting habits with our beautifully structured daily tracker sheet to monitor your skin's transformation over four weeks.</p>
         </div>
@@ -177,30 +187,30 @@
       <div class="space-y-4">
         <!-- Question 1 -->
         <div class="bg-white p-5 rounded-xl border border-soft-rose/40 shadow-sm space-y-2">
-          <h3 class="font-bold text-sm text-bronze flex items-center justify-content">
-            <span class="mr-2">Q:</span> Is the skincare diagnostic quiz really free?
+          <h3 class="font-bold text-sm text-bronze flex items-center">
+            <i data-lucide="help-circle" class="w-4 h-4 mr-2 text-bronze"></i> Is the skincare diagnostic quiz really free?
           </h3>
-          <p class="text-xs text-warm-gray leading-relaxed pl-5">
+          <p class="text-xs text-warm-gray leading-relaxed pl-6">
             Yes, absolutely! Our interactive skin diagnostic is 100% free. Once completed, your tailored recommendations and the free routine tracker are sent straight to your email.
           </p>
         </div>
 
         <!-- Question 2 -->
         <div class="bg-white p-5 rounded-xl border border-soft-rose/40 shadow-sm space-y-2">
-          <h3 class="font-bold text-sm text-bronze flex items-center justify-content">
-            <span class="mr-2">Q:</span> When will I receive my 30-Day Routine Tracker?
+          <h3 class="font-bold text-sm text-bronze flex items-center">
+            <i data-lucide="help-circle" class="w-4 h-4 mr-2 text-bronze"></i> When will I receive my 30-Day Routine Tracker?
           </h3>
-          <p class="text-xs text-warm-gray leading-relaxed pl-5">
+          <p class="text-xs text-warm-gray leading-relaxed pl-6">
             Instantly! As soon as you submit your details at the end of the quiz, the PDF tracker will land directly in your inbox within seconds.
           </p>
         </div>
 
         <!-- Question 3 -->
         <div class="bg-white p-5 rounded-xl border border-soft-rose/40 shadow-sm space-y-2">
-          <h3 class="font-bold text-sm text-bronze flex items-center justify-content">
-            <span class="mr-2">Q:</span> Can I do this quiz on my mobile phone or tablet?
+          <h3 class="font-bold text-sm text-bronze flex items-center">
+            <i data-lucide="help-circle" class="w-4 h-4 mr-2 text-bronze"></i> Can I do this quiz on my mobile phone or tablet?
           </h3>
-          <p class="text-xs text-warm-gray leading-relaxed pl-5">
+          <p class="text-xs text-warm-gray leading-relaxed pl-6">
             Yes! Our page is fully responsive and optimized for all devices, ensuring a smooth, touch-friendly experience whether you are on an iPhone, Android, or tablet.
           </p>
         </div>
@@ -275,7 +285,7 @@
       q.options.forEach(optText => {
         const btn = document.createElement('button');
         btn.type = 'button';
-        btn.className = 'w-full p-3 rounded-lg bg-blush border border-bronze/30 text-bronze font-medium flex items-center justify-between hover:border-bronze hover:bg-white transition text-left text-xs';
+        btn.className = 'w-full p-3 rounded-lg bg-white border border-bronze/30 text-bronze font-medium flex items-center justify-between hover:border-bronze hover:bg-cream transition text-left text-xs shadow-sm';
         
         btn.innerHTML = `
           <span>${optText}</span>
@@ -304,9 +314,9 @@
         const resultsScreen = document.getElementById('results-screen');
         resultsScreen.classList.add('active');
 
-        // Déclencher le formulaire MailerLite
+        // Forcer le rendu du formulaire MailerLite dans le bloc dédié
         if (typeof ml === 'function') {
-          ml('show', 'lVGT3c', true);
+          ml('account', '2260297');
         }
       }
     }
