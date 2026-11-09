@@ -1,578 +1,239 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Pretty Plan Hub | Glow Up Skin Diagnostic</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Playfair Display & Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        cream: '#FAF7F2',
-                        sand: '#F3EDE2',
-                        blush: '#F9ECE8',
-                        'soft-rose': '#E8D5CE',
-                        bronze: '#3D2617',
-                        'bronze-hover': '#2A1A0F',
-                        'warm-gray': '#6B625B'
-                    },
-                    fontFamily: {
-                        serif: ['"Playfair Display"', 'serif'],
-                        sans: ['Inter', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        body {
-            background-color: #FAF7F2;
-            color: #3D2617;
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-        }
-        .font-serif-title {
-            font-family: 'Playfair Display', serif;
-        }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(232, 213, 206, 0.5);
-        }
-        .glass-card-dark {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(61, 38, 23, 0.1);
-        }
-        .glow-shadow {
-            box-shadow: 0 20px 40px -15px rgba(61, 38, 23, 0.08);
-        }
-        .smooth-transition {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-    </style>
-</head><style>
-  /* Déblocage tactile pour tablettes */
-  button, a, input, div[class*="rounded"] {
-    touch-action: manipulation !important;
-    pointer-events: auto !important;
-  }
-</style>
-<body class="antialiased selection:bg-soft-rose selection:text-bronze">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Pretty Plan Hub | Glow Up Skin Diagnostic</title>
+  
+  <!-- Tailwind CSS & Lucide Icons CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- Announcement Bar -->
-    <div class="bg-bronze text-cream text-center text-xs sm:text-sm py-2.5 px-4 font-medium tracking-wide">
-        ✨ LIMITED TIME: Get the 30-Day Routine Tracker Free With Your Diagnostic ✨
-    </div>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'cream': '#F9F6F0',
+            'bronze': '#C59B70',
+            'soft-rose': '#E8D8CE',
+            'warm-gray': '#786C66',
+            'sand': '#F2ECE4',
+            'blush': '#FDFBF7'
+          }
+        }
+      }
+    }
+  </script>
 
-    <!-- Header Navigation -->
-    <header class="py-5 px-6 max-w-7xl mx-auto flex items-center justify-between">
-        <div class="flex items-center gap-2">
-            <span class="text-2xl font-serif-title font-bold tracking-tight text-bronze">The Pretty Plan Hub</span>
+  <style>
+    /* CORRECTION ANTI-BLOCAGE TACTILE SUR TABLETTE & MOBILE */
+    html, body {
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button, .quiz-option-btn, #options-container button {
+      touch-action: manipulation !important;
+      pointer-events: auto !important;
+      cursor: pointer !important;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+
+    #results-screen {
+      display: none;
+      pointer-events: auto !important;
+    }
+
+    #results-screen.active {
+      display: block !important;
+    }
+  </style>
+</head>
+<body class="antialiased bg-cream text-bronze selection:bg-soft-rose selection:text-bronze">
+
+  <!-- BARRE D'ANNONCE -->
+  <div class="bg-bronze text-cream text-center text-xs sm:text-sm py-2.5 px-4 font-medium tracking-wide">
+    ✨ LIMITED TIME: Get the 30-Day Routine Tracker Free With Your Diagnostic ✨
+  </div>
+
+  <!-- EN-TÊTE DE LA PAGE -->
+  <header class="py-6 px-4 sm:px-6 max-w-7xl mx-auto flex items-center justify-between">
+    <span class="font-bold tracking-tight text-bronze text-lg">The Pretty Plan Hub</span>
+    <a href="#quiz-card-wrapper" class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider bg-bronze text-cream px-4 py-2 rounded-full shadow-sm hover:opacity-90 transition">
+      Start Quiz <i data-lucide="arrow-right" class="w-4 h-4"></i>
+    </a>
+  </header>
+
+  <!-- CONTENU PRINCIPAL DE LA LANDING PAGE -->
+  <main class="space-y-20 lg:space-y-32 pb-20">
+    
+    <!-- HERO SECTION -->
+    <section id="optin-section" class="pt-6 pb-12 px-4 sm:px-6 max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        
+        <!-- TEXTES D'ACCUEIL -->
+        <div class="lg:col-span-6 space-y-6 text-center lg:text-left">
+          <span class="inline-block px-3 py-1 bg-soft-rose/50 text-bronze rounded-full text-xs font-semibold tracking-wider uppercase">
+            Interactive Skin Diagnostic
+          </span>
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-bronze leading-tight">
+            Discover Your Personalized Skincare Routine
+          </h1>
+          <p class="text-warm-gray text-sm sm:text-base max-w-xl mx-auto lg:mx-0">
+            Take our 1-minute quiz to analyze your skin needs and unlock your tailored routine, product guidance, plus a free 30-Day Routine Tracker PDF.
+          </p>
         </div>
-        <a href="#optin-section" class="hidden sm:inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-bronze border-b-2 border-bronze pb-0.5 hover:opacity-75 transition-opacity">
-            Get Free Access
-            <i data-lucide="arrow-right" class="w-4 h-4"></i>
-        </a>
-    </header>
 
-    <main class="space-y-20 lg:space-y-32 pb-20">
-
-        <!-- Hero Section -->
-        <section id="optin-section" class="pt-6 pb-12 px-4 sm:px-6 max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-                
-                <!-- Hero Left: Content & Opt-In Form -->
-                <div class="lg:col-span-7 space-y-6">
-                    
-                    <!-- Badge -->
-                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blush border border-soft-rose text-bronze text-xs font-semibold tracking-wide">
-                        <i data-lucide="sparkles" class="w-3.5 h-3.5 text-bronze"></i>
-                        <span>FREE 5-MINUTE SKINCARE DIAGNOSTIC & TRACKER</span>
-                    </div>
-
-                    <!-- Headline -->
-                    <h1 class="font-serif-title text-4xl sm:text-5xl lg:text-6xl font-bold text-bronze leading-[1.15] tracking-tight">
-                        Find Your Perfect Skincare Routine in <span class="italic font-normal">5 Minutes</span>
-                    </h1>
-
-                    <!-- Subheadline -->
-                    <p class="text-warm-gray text-base sm:text-lg max-w-2xl leading-relaxed">
-                        Take the quick skin quiz to unlock your personalized AM/PM routine, custom skin profile, and bonus 30-day tracker — delivered straight to your inbox instantly.
-                    </p>
-
-                    <!-- Opt-in Form Container -->
-                    <div class="glass-card-dark p-6 sm:p-8 rounded-3xl glow-shadow space-y-5 max-w-xl">
-                        
-                        <!-- Form State Success / Default -->
-                        <div id="form-container">
-                            <form id="lead-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
-                                <div class="space-y-3">
-                                    <div>
-                                        <label for="user-name" class="block text-xs font-semibold uppercase tracking-wider text-bronze mb-1.5">First Name <span class="text-warm-gray font-normal">(Optional)</span></label>
-                                        <input type="text" id="user-name" placeholder="e.g. Jessica" class="w-full px-4 py-3.5 rounded-xl bg-white border border-soft-rose text-bronze placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-bronze/30 focus:border-bronze transition-all text-sm">
-                                    </div>
-                                    <div>
-                                        <label for="user-email" class="block text-xs font-semibold uppercase tracking-wider text-bronze mb-1.5">Email Address <span class="text-red-600">*</span></label>
-                                        <input type="email" id="user-email" required placeholder="your.email@example.com" class="w-full px-4 py-3.5 rounded-xl bg-white border border-soft-rose text-bronze placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-bronze/30 focus:border-bronze transition-all text-sm">
-                                    </div>
-                                </div>
-
-                                <button type="submit" class="w-full py-4 px-6 rounded-xl bg-bronze hover:bg-bronze-hover text-cream font-bold text-sm sm:text-base tracking-wide uppercase shadow-lg shadow-bronze/20 hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer">
-                                    <span>CLAIM MY FREE ROUTINE & TRACKER</span>
-                                    <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
-                                </button>
-                            </form>
-
-                            <!-- Micro-copy -->
-                            <p class="text-center text-xs text-warm-gray flex items-center justify-center gap-1.5 pt-3">
-                                <i data-lucide="lock" class="w-3.5 h-3.5 text-bronze"></i>
-                                <span>100% Free • Zero Spam • Instant Email Delivery</span>
-                            </p>
-                        </div>
-
-                        <!-- Success Message State (Hidden initially) -->
-                        <div id="success-state" class="hidden text-center py-6 space-y-4">
-                            <div class="w-14 h-14 bg-blush rounded-full flex items-center justify-center mx-auto text-bronze border border-soft-rose">
-                                <i data-lucide="check" class="w-7 h-7"></i>
-                            </div>
-                            <h3 class="font-serif-title text-2xl font-bold text-bronze">You're On The List! 🎉</h3>
-                            <p class="text-warm-gray text-sm leading-relaxed max-w-sm mx-auto">
-                                Check your inbox in 1–2 minutes for your downloadable diagnostic guide and 30-day tracker!
-                            </p>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <!-- Hero Right: Interactive Digital Mockup Preview -->
-                <div class="lg:col-span-5 relative flex justify-center">
-                    
-                    <!-- Decorative Background Glow -->
-                    <div class="absolute inset-0 bg-gradient-to-tr from-blush via-sand to-soft-rose rounded-full blur-3xl opacity-60 -z-10 scale-95"></div>
-
-                    <!-- Realistic Digital Tablet Mockup -->
-                    <div class="w-full max-w-md bg-bronze p-3.5 sm:p-4 rounded-[2.5rem] shadow-2xl border-4 border-bronze/80 space-y-3 transform lg:rotate-1 hover:rotate-0 transition-transform duration-500">
-                        <!-- Camera Dot -->
-                        <div class="w-3 h-3 bg-bronze-hover rounded-full mx-auto mb-1"></div>
-                        
-                        <!-- Screen Content -->
-                        <div class="bg-cream rounded-[1.75rem] p-5 space-y-4 text-bronze border border-soft-rose/50 overflow-hidden relative">
-                            
-                            <!-- Header Inside Screen -->
-                            <div class="border-b border-soft-rose/60 pb-3">
-                                <span class="text-[10px] font-bold tracking-widest uppercase text-warm-gray block">THE PRETTY PLAN HUB</span>
-                                <h2 class="font-serif-title text-lg font-bold text-bronze leading-tight">Glow Up Skin Diagnostic</h2>
-                                <div class="flex items-center justify-between text-[11px] text-warm-gray mt-1">
-                                    <span>Progress: 1 of 5 Questions</span>
-                                    <span class="font-semibold text-bronze">20%</span>
-                                </div>
-                                <div class="w-full bg-sand h-1.5 rounded-full mt-1.5 overflow-hidden">
-                                    <div class="bg-bronze h-full w-1/5 rounded-full"></div>
-                                </div>
-                            </div>
-
-                            <!-- Mockup Quiz Card -->
-                            <div class="bg-white p-3.5 rounded-xl border border-soft-rose/40 shadow-sm space-y-2.5">
-                                <p class="text-xs font-semibold text-bronze">Question 1: What is your primary skin goal?</p>
-                                <div class="space-y-1.5 text-xs">
-                                    <div class="p-2 rounded-lg bg-blush border border-bronze/30 font-medium flex items-center justify-between">
-                                        <span>Deep Hydration & Barrier Repair</span>
-                                        <i data-lucide="check-circle-2" class="w-4 h-4 text-bronze"></i>
-                                    </div>
-                                    <div class="p-2 rounded-lg bg-cream hover:bg-blush/50 transition-colors text-warm-gray flex items-center justify-between">
-                                        <span>Clear Breakouts & Unclog Pores</span>
-                                    </div>
-                                    <div class="p-2 rounded-lg bg-cream hover:bg-blush/50 transition-colors text-warm-gray flex items-center justify-between">
-                                        <span>Glow & Fade Dark Spots</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Mockup AM/PM Preview Box -->
-                            <div class="bg-sand/60 p-3 rounded-xl border border-soft-rose/50 space-y-2">
-                                <div class="flex items-center justify-between">
-                                    <span class="text-[11px] font-bold uppercase tracking-wider text-bronze">Sample Routine Unlock</span>
-                                    <span class="text-[9px] bg-bronze text-cream px-2 py-0.5 rounded-full font-medium">Included</span>
-                                </div>
-                                <div class="grid grid-cols-2 gap-2 text-[10px]">
-                                    <div class="bg-white p-2 rounded-lg border border-soft-rose/30">
-                                        <p class="font-bold text-bronze">☀️ AM Routine</p>
-                                        <p class="text-warm-gray truncate">1. Gentle Hydrating Cleanser</p>
-                                        <p class="text-warm-gray truncate">2. Vitamin C + Niacinamide</p>
-                                    </div>
-                                    <div class="bg-white p-2 rounded-lg border border-soft-rose/30">
-                                        <p class="font-bold text-bronze">🌙 PM Routine</p>
-                                        <p class="text-warm-gray truncate">1. Double Cleansing Oil</p>
-                                        <p class="text-warm-gray truncate">2. Barrier Cream</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Interactive Quick Quiz / Skin Profile Preview -->
-        <section class="px-4 sm:px-6 max-w-5xl mx-auto">
-            <div class="glass-card rounded-3xl p-6 sm:p-10 glow-shadow border border-soft-rose space-y-8">
-                
-                <div class="text-center space-y-2 max-w-xl mx-auto">
-                    <span class="text-xs font-bold uppercase tracking-widest text-warm-gray">Interactive Preview</span>
-                    <h2 class="font-serif-title text-3xl sm:text-4xl font-bold text-bronze">Sample Your Skin Profile</h2>
-                    <p class="text-warm-gray text-sm">Select your skin type below to see a instant sneak peek of what your personalized diagnostic breakdown looks like!</p>
-                </div>
-
-<button type="button" class="quiz-option" onclick="nextQuestion(this)">Option Text</button>
-                <!-- Skin Type Selector Tabs -->
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                    <button onclick="selectSkinType('dry')" id="btn-dry" class="skin-tab-btn py-3 px-4 rounded-xl border border-soft-rose font-medium text-xs sm:text-sm text-bronze bg-blush shadow-sm transition-all text-center">
-                        🌵 Dry Skin
-                    </button>
-                    <button onclick="selectSkinType('oily')" id="btn-oily" class="skin-tab-btn py-3 px-4 rounded-xl border border-soft-rose font-medium text-xs sm:text-sm text-bronze bg-white hover:bg-blush/40 transition-all text-center">
-                        ✨ Oily Skin
-                    </button>
-                    <button onclick="selectSkinType('combo')" id="btn-combo" class="skin-tab-btn py-3 px-4 rounded-xl border border-soft-rose font-medium text-xs sm:text-sm text-bronze bg-white hover:bg-blush/40 transition-all text-center">
-                        ⚖️ Combination
-                    </button>
-                    <button onclick="selectSkinType('sensitive')" id="btn-sensitive" class="skin-tab-btn py-3 px-4 rounded-xl border border-soft-rose font-medium text-xs sm:text-sm text-bronze bg-white hover:bg-blush/40 transition-all text-center">
-                        🌸 Sensitive Skin
-                    </button>
-                </div>
-
-                <!-- Dynamic Preview Result Box -->
-                <div class="bg-white rounded-2xl p-6 border border-soft-rose/60 space-y-4">
-                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-soft-rose/40 pb-3">
-                        <div>
-                            <span class="text-xs text-warm-gray uppercase tracking-wider block">Diagnostic Result Preview</span>
-                            <h3 id="preview-title" class="font-serif-title text-xl font-bold text-bronze">Dry & Dehydrated Skin Profile</h3>
-                        </div>
-                        <span class="inline-flex items-center gap-1 text-xs bg-blush text-bronze font-semibold px-3 py-1 rounded-full w-fit">
-                            <i data-lucide="check" class="w-3.5 h-3.5"></i> Custom Match Ready
-                        </span>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
-                        <div class="bg-cream p-4 rounded-xl space-y-1.5">
-                            <span class="font-bold text-bronze text-sm block">💧 Hero Ingredients</span>
-                            <p id="preview-ingredients" class="text-warm-gray leading-relaxed">Hyaluronic Acid, Ceramides, Squalane, Centella Asiatica.</p>
-                        </div>
-                        <div class="bg-cream p-4 rounded-xl space-y-1.5">
-                            <span class="font-bold text-bronze text-sm block">☀️ Morning Focus</span>
-                            <p id="preview-am" class="text-warm-gray leading-relaxed">Gentle non-foaming cleanser + Hydrating Serum + Dewy Sunscreen SPF 50.</p>
-                        </div>
-                        <div class="bg-cream p-4 rounded-xl space-y-1.5">
-                            <span class="font-bold text-bronze text-sm block">🚫 Ingredients to Avoid</span>
-                            <p id="preview-avoid" class="text-warm-gray leading-relaxed">Harsh sulfates, high % alcohol, stripping physical scrubs.</p>
-                        </div>
-                    </div>
-
-                    <div class="text-center pt-2">
-                        <a href="#optin-section" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-bronze hover:underline">
-                            <span>Get the full high-res PDF diagnostic & 30-day tracker</span>
-                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- "What's Included Inside" Feature Grid -->
-        <section class="px-4 sm:px-6 max-w-7xl mx-auto space-y-12">
+        <!-- CADRE DU QUIZ ET DE LA MAQUETTE TABLETTE -->
+        <div id="quiz-card-wrapper" class="lg:col-span-6 flex justify-center">
+          <div class="w-full max-w-md bg-cream rounded-[1.75rem] p-5 space-y-4 text-bronze border border-soft-rose/50 shadow-xl">
             
-            <div class="text-center space-y-3 max-w-2xl mx-auto">
-                <span class="text-xs font-bold uppercase tracking-widest text-warm-gray">Inside The Guide</span>
-                <h2 class="font-serif-title text-3xl sm:text-4xl font-bold text-bronze">Everything You Need for Glowing Skin</h2>
-                <p class="text-warm-gray text-base">No more guessing or spending money on products that break you out. Get clear, step-by-step guidance tailored to you.</p>
+            <!-- EN-TÊTE DU QUIZ (Barre de progression) -->
+            <div id="quiz-header" class="border-b border-soft-rose/60 pb-3">
+              <span class="text-[10px] font-bold tracking-widest uppercase text-warm-gray block">THE PRETTY PLAN HUB</span>
+              <h2 class="font-serif-title text-lg font-bold text-bronze leading-tight">Glow Up Skin Diagnostic</h2>
+              <div class="flex items-center justify-between text-[11px] text-warm-gray mt-1">
+                <span id="progress-text">Progress: 1 of 3 Questions</span>
+                <span id="progress-percent" class="font-semibold text-bronze">33%</span>
+              </div>
+              <div class="w-full bg-sand h-1.5 rounded-full mt-1.5 overflow-hidden">
+                <div id="progress-bar" class="bg-bronze h-full w-1/3 rounded-full transition-all duration-300"></div>
+              </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                
-                <!-- Feature Card 1 -->
-                <div class="glass-card p-6 rounded-2xl border border-soft-rose hover:-translate-y-1 transition-all duration-300 space-y-4">
-                    <div class="w-12 h-12 bg-blush rounded-xl flex items-center justify-center text-bronze border border-soft-rose">
-                        <i data-lucide="sun-moon" class="w-6 h-6"></i>
-                    </div>
-                    <h3 class="font-serif-title text-xl font-bold text-bronze">Personalized AM/PM Steps</h3>
-                    <p class="text-warm-gray text-xs sm:text-sm leading-relaxed">
-                        Customized to your exact skin type and concerns so you know what products to apply and in what order.
-                    </p>
-                </div>
-
-                <!-- Feature Card 2 -->
-                <div class="glass-card p-6 rounded-2xl border border-soft-rose hover:-translate-y-1 transition-all duration-300 space-y-4">
-                    <div class="w-12 h-12 bg-blush rounded-xl flex items-center justify-center text-bronze border border-soft-rose">
-                        <i data-lucide="calendar-check" class="w-6 h-6"></i>
-                    </div>
-                    <h3 class="font-serif-title text-xl font-bold text-bronze">30-Day Glow Up Tracker</h3>
-                    <p class="text-warm-gray text-xs sm:text-sm leading-relaxed">
-                        Track your daily skincare habits, product usage, and progress to build consistency that yields real results.
-                    </p>
-                </div>
-
-                <!-- Feature Card 3 -->
-                <div class="glass-card p-6 rounded-2xl border border-soft-rose hover:-translate-y-1 transition-all duration-300 space-y-4">
-                    <div class="w-12 h-12 bg-blush rounded-xl flex items-center justify-center text-bronze border border-soft-rose">
-                        <i data-lucide="flask-conical" class="w-6 h-6"></i>
-                    </div>
-                    <h3 class="font-serif-title text-xl font-bold text-bronze">Ingredients Cheatsheet</h3>
-                    <p class="text-warm-gray text-xs sm:text-sm leading-relaxed">
-                        Learn which active ingredients your skin loves versus which ones trigger breakouts and irritation.
-                    </p>
-                </div>
-
-                <!-- Feature Card 4 -->
-                <div class="glass-card p-6 rounded-2xl border border-soft-rose hover:-translate-y-1 transition-all duration-300 space-y-4">
-                    <div class="w-12 h-12 bg-blush rounded-xl flex items-center justify-center text-bronze border border-soft-rose">
-                        <i data-lucide="tablet-smartphone" class="w-6 h-6"></i>
-                    </div>
-                    <h3 class="font-serif-title text-xl font-bold text-bronze">Digital & Printable PDF</h3>
-                    <p class="text-warm-gray text-xs sm:text-sm leading-relaxed">
-                        Use it digitally on your iPad/GoodNotes, or print it out to keep right beside your vanity mirror!
-                    </p>
-                </div>
-
+            <!-- ÉCRAN DU QUIZ (QUESTIONS ET BOUTONS TACTILES) -->
+            <div id="quiz-screen" class="space-y-4">
+              <div class="bg-white p-4 rounded-xl border border-soft-rose/40 shadow-sm space-y-3">
+                <p id="question-text" class="text-sm font-bold text-bronze">Question 1: What is your primary skin goal?</p>
+                <div id="options-container" class="space-y-2 text-xs"></div>
+              </div>
             </div>
 
-        </section>
-
-        <!-- Testimonials / Social Proof -->
-        <section class="px-4 sm:px-6 max-w-7xl mx-auto space-y-10">
-            <div class="text-center space-y-2">
-                <span class="text-xs font-bold uppercase tracking-widest text-warm-gray">Real Reviews</span>
-                <h2 class="font-serif-title text-3xl sm:text-4xl font-bold text-bronze">Loved By Skincare Enthusiasts</h2>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                
-                <!-- Quote 1 -->
-                <div class="bg-white p-6 rounded-2xl border border-soft-rose/60 space-y-4 shadow-sm">
-                    <div class="flex text-amber-500 gap-1">
-                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-                    </div>
-                    <p class="text-warm-gray text-xs sm:text-sm italic leading-relaxed">
-                        "I used to spend hundreds on random skincare products from social media recommendations. This diagnostic helped me narrow down exactly what my skin needed."
-                    </p>
-                    <div class="border-t border-soft-rose/40 pt-3">
-                        <p class="font-serif-title font-bold text-sm text-bronze">Sarah M.</p>
-                        <p class="text-[11px] text-warm-gray">Verified Subscriber</p>
-                    </div>
+            <!-- ÉCRAN DE RÉSULTATS & MAILERLITE CONNECTÉ -->
+            <div id="results-screen" class="space-y-4 text-center">
+              <div class="bg-white p-5 rounded-xl border border-soft-rose/40 shadow-sm space-y-3">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-soft-rose/40 text-bronze mb-1">
+                  <i data-lucide="sparkles" class="w-5 h-5"></i>
                 </div>
-
-                <!-- Quote 2 -->
-                <div class="bg-white p-6 rounded-2xl border border-soft-rose/60 space-y-4 shadow-sm">
-                    <div class="flex text-amber-500 gap-1">
-                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-                    </div>
-                    <p class="text-warm-gray text-xs sm:text-sm italic leading-relaxed">
-                        "The 30-day tracker on my iPad completely changed my routine. Having a aesthetic habit tracker made me stay consistent for the first time ever!"
-                    </p>
-                    <div class="border-t border-soft-rose/40 pt-3">
-                        <p class="font-serif-title font-bold text-sm text-bronze">Elena R.</p>
-                        <p class="text-[11px] text-warm-gray">Verified Subscriber</p>
-                    </div>
-                </div>
-
-                <!-- Quote 3 -->
-                <div class="bg-white p-6 rounded-2xl border border-soft-rose/60 space-y-4 shadow-sm">
-                    <div class="flex text-amber-500 gap-1">
-                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-                    </div>
-                    <p class="text-warm-gray text-xs sm:text-sm italic leading-relaxed">
-                        "Super chic layout and insanely helpful ingredient breakdown. I printed mine and put it right inside my bathroom cabinet."
-                    </p>
-                    <div class="border-t border-soft-rose/40 pt-3">
-                        <p class="font-serif-title font-bold text-sm text-bronze">Chloe T.</p>
-                        <p class="text-[11px] text-warm-gray">Verified Subscriber</p>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- FAQ Accordion Section -->
-        <section class="px-4 sm:px-6 max-w-3xl mx-auto space-y-8">
-            <div class="text-center space-y-2">
-                <span class="text-xs font-bold uppercase tracking-widest text-warm-gray">Got Questions?</span>
-                <h2 class="font-serif-title text-3xl sm:text-4xl font-bold text-bronze">Frequently Asked Questions</h2>
-            </div>
-
-            <div class="space-y-3">
-                
-                <!-- FAQ 1 -->
-                <div class="border border-soft-rose rounded-xl bg-white overflow-hidden">
-                    <button onclick="toggleFaq(1)" class="w-full text-left p-4 sm:p-5 font-serif-title font-semibold text-bronze flex justify-between items-center text-base sm:text-lg">
-                        <span>Is this diagnostic completely free?</span>
-                        <i id="faq-icon-1" data-lucide="chevron-down" class="w-5 h-5 text-bronze transition-transform"></i>
-                    </button>
-                    <div id="faq-answer-1" class="hidden px-4 pb-5 sm:px-5 text-xs sm:text-sm text-warm-gray leading-relaxed border-t border-soft-rose/30 pt-3">
-                        Yes, 100%! The Glow Up Diagnostic & 30-Day Routine Tracker is completely free to download. We send it straight to your email.
-                    </div>
-                </div>
-
-                <!-- FAQ 2 -->
-                <div class="border border-soft-rose rounded-xl bg-white overflow-hidden">
-                    <button onclick="toggleFaq(2)" class="w-full text-left p-4 sm:p-5 font-serif-title font-semibold text-bronze flex justify-between items-center text-base sm:text-lg">
-                        <span>How quickly will I receive my PDF?</span>
-                        <i id="faq-icon-2" data-lucide="chevron-down" class="w-5 h-5 text-bronze transition-transform"></i>
-                    </button>
-                    <div id="faq-answer-2" class="hidden px-4 pb-5 sm:px-5 text-xs sm:text-sm text-warm-gray leading-relaxed border-t border-soft-rose/30 pt-3">
-                        Instantly! As soon as you enter your email and click the request button, your custom guide link will arrive in your email inbox within 1–2 minutes.
-                    </div>
-                </div>
-
-                <!-- FAQ 3 -->
-                <div class="border border-soft-rose rounded-xl bg-white overflow-hidden">
-                    <button onclick="toggleFaq(3)" class="w-full text-left p-4 sm:p-5 font-serif-title font-semibold text-bronze flex justify-between items-center text-base sm:text-lg">
-                        <span>Can I print it out or use it digitally?</span>
-                        <i id="faq-icon-3" data-lucide="chevron-down" class="w-5 h-5 text-bronze transition-transform"></i>
-                    </button>
-                    <div id="faq-answer-3" class="hidden px-4 pb-5 sm:px-5 text-xs sm:text-sm text-warm-gray leading-relaxed border-t border-soft-rose/30 pt-3">
-                        Both! The guide is formatted as a high-resolution PDF that works seamlessly on iPad digital planning apps (like GoodNotes, Notability) or can be printed out at home.
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Bottom High-Converting Call-to-Action Banner -->
-        <section class="px-4 sm:px-6 max-w-5xl mx-auto">
-            <div class="bg-bronze text-cream rounded-3xl p-8 sm:p-12 text-center space-y-6 shadow-2xl relative overflow-hidden">
-                <!-- Subtle Background Decorative Element -->
-                <div class="absolute -top-12 -right-12 w-48 h-48 bg-soft-rose/10 rounded-full blur-2xl"></div>
-                
-                <h2 class="font-serif-title text-3xl sm:text-4xl font-bold leading-tight">
-                    Ready to Transform Your Skincare Routine?
-                </h2>
-                <p class="text-soft-rose text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
-                    Join thousands of readers who found their perfect routine. Get your personalized breakdown and tracker in seconds.
+                <h3 class="text-base font-bold text-bronze">✨ Your Skin Diagnostic is Complete!</h3>
+                <p class="text-xs text-warm-gray leading-relaxed mb-4">
+                  Enter your details below to unlock your custom breakdown and receive your <strong>Free 30-Day Routine Tracker PDF</strong> immediately in your inbox.
                 </p>
-                <div class="pt-2">
-                    <a href="#optin-section" class="inline-flex items-center justify-center py-4 px-8 rounded-xl bg-cream text-bronze font-bold text-sm sm:text-base tracking-wide uppercase hover:bg-white transition-all shadow-lg">
-                        GET INSTANT FREE ACCESS NOW →
-                    </a>
-                </div>
+
+                <!-- FORMULAIRE MAILERLITE VÔTRE INTEGRÉ -->
+                <div class="ml-embedded" data-form="lVGT3c"></div>
+              </div>
             </div>
-        </section>
 
-    </main>
+          </div>
+        </div>
 
-    <!-- Footer -->
-    <footer class="border-t border-soft-rose/50 py-8 px-6 text-center text-xs text-warm-gray space-y-3">
-        <p class="font-serif-title text-sm text-bronze font-semibold">The Pretty Plan Hub</p>
-        <p>© 2026 The Pretty Plan Hub. All Rights Reserved. Designed for aesthetic beauty organization.</p>
-    </footer>
+      </div>
+    </section>
 
-    <script>
-        // Initialize Lucide Icons
-        lucide.createIcons();
+  </main>
 
-        // Handle Opt-In Form Submit
-        function handleFormSubmit(event) {
-            event.preventDefault();
-            const emailInput = document.getElementById('user-email').value;
-            
-            if (emailInput) {
-                document.getElementById('form-container').classList.add('hidden');
-                document.getElementById('success-state').classList.remove('hidden');
-            }
+  <!-- SCRIPT UNIVERSEL MAILERLITE AVEC VOTRE ACCOUNT ID -->
+  <script>
+    (function(w,d,e,u,f,m,n){w['MailerLiteObject']=f;w[f]=w[f]||function(){
+    (w[f].q=w[f].q||[]).push(arguments)},w[f].l=1*new Date();m=d.createElement(e),
+    n=d.getElementsByTagName(e)[0];m.async=1;m.src=u;n.parentNode.insertBefore(m,n);
+    })(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    
+    ml('account', '2260297');
+  </script>
+
+  <!-- SCRIPT DU QUIZ SÉCURISÉ TABLETTE/MOBILE -->
+  <script>
+    lucide.createIcons();
+
+    const quizData = [
+      {
+        question: "Question 1: What is your primary skin goal?",
+        options: [
+          "Deep Hydration & Barrier Repair",
+          "Blemish Control & Clear Pores",
+          "Glow, Radiance & Even Tone"
+        ]
+      },
+      {
+        question: "Question 2: How does your skin feel midday?",
+        options: [
+          "Tight or Dry",
+          "Shiny on T-Zone",
+          "Sensitive or Irritated"
+        ]
+      },
+      {
+        question: "Question 3: What is your current routine level?",
+        options: [
+          "Consistent daily routine",
+          "Basic (Cleanser + Moisturizer)",
+          "Looking to start fresh!"
+        ]
+      }
+    ];
+
+    let currentStep = 0;
+
+    function renderQuestion() {
+      const q = quizData[currentStep];
+      document.getElementById('question-text').innerText = q.question;
+      
+      const progressNum = currentStep + 1;
+      const totalNum = quizData.length;
+      const percent = Math.round((progressNum / totalNum) * 100);
+      
+      document.getElementById('progress-text').innerText = `Progress: ${progressNum} of ${totalNum} Questions`;
+      document.getElementById('progress-percent').innerText = `${percent}%`;
+      document.getElementById('progress-bar').style.width = `${percent}%`;
+
+      const optionsContainer = document.getElementById('options-container');
+      optionsContainer.innerHTML = '';
+
+      q.options.forEach(optText => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'w-full p-3 rounded-lg bg-blush border border-bronze/30 text-bronze font-medium flex items-center justify-between hover:border-bronze hover:bg-white transition text-left text-xs';
+        
+        btn.innerHTML = `
+          <span>${optText}</span>
+          <i data-lucide="check-circle-2" class="w-4 h-4 text-bronze shrink-0 opacity-70"></i>
+        `;
+
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          nextStep();
+        });
+
+        optionsContainer.appendChild(btn);
+      });
+
+      lucide.createIcons();
+    }
+
+    function nextStep() {
+      currentStep++;
+      if (currentStep < quizData.length) {
+        renderQuestion();
+      } else {
+        document.getElementById('quiz-screen').style.display = 'none';
+        document.getElementById('quiz-header').style.display = 'none';
+        
+        const resultsScreen = document.getElementById('results-screen');
+        resultsScreen.classList.add('active');
+
+        // Déclencher le chargement du formulaire MailerLite à la fin du quiz
+        if (typeof ml === 'function') {
+          ml('show', 'lVGT3c', true);
         }
+      }
+    }
 
-        // Toggle Accordion FAQs
-        function toggleFaq(id) {
-            const answer = document.getElementById(`faq-answer-${id}`);
-            const icon = document.getElementById(`faq-icon-${id}`);
-            
-            if (answer.classList.contains('hidden')) {
-                answer.classList.remove('hidden');
-                icon.style.transform = 'rotate(180deg)';
-            } else {
-                answer.classList.add('hidden');
-                icon.style.transform = 'rotate(0deg)';
-            }
-        }
+    document.addEventListener('DOMContentLoaded', renderQuestion);
+  </script>
 
-        // Skin Type Data for Interactive Preview
-        const skinData = {
-            dry: {
-                title: "Dry & Dehydrated Skin Profile",
-                ingredients: "Hyaluronic Acid, Ceramides, Squalane, Centella Asiatica.",
-                am: "Gentle non-foaming cleanser + Hydrating Serum + Dewy Sunscreen SPF 50.",
-                avoid: "Harsh sulfates, high % alcohol, stripping physical scrubs."
-            },
-            oily: {
-                title: "Oily & Acne-Prone Skin Profile",
-                ingredients: "Salicylic Acid (BHA), Niacinamide, Zinc, Lightweight Gel Moisturizers.",
-                am: "Gel Cleanser + BHA Treatment + Gel-Moisturizer + Matte Sunscreen.",
-                avoid: "Heavy mineral oils, thick comedogenic creams, pore-clogging waxes."
-            },
-            combo: {
-                title: "Combination Skin Profile",
-                ingredients: "Lactic Acid (AHA), Green Tea Extract, Polyhydroxy Acids (PHA).",
-                am: "Balanced Cleanser + Hydrating Essence + Target T-Zone Treatment.",
-                avoid: "Over-drying cleansers that trigger excess oil production."
-            },
-            sensitive: {
-                title: "Sensitive & Reactive Skin Profile",
-                ingredients: "Madecassoside, Allantoin, Oat Extract, Panthenol (Vitamin B5).",
-                am: "Micellar Water/Soothe Cleanser + Barrier Repair Serum + Mineral SPF.",
-                avoid: "Synthetic fragrances, essential oils, high-strength acid peels."
-            }
-        };
-
-        // Switch Skin Preview Card Content
-        function selectSkinType(type) {
-            // Update button styles
-            const buttons = document.querySelectorAll('.skin-tab-btn');
-            buttons.forEach(btn => {
-                btn.classList.remove('bg-blush', 'shadow-sm');
-                btn.classList.add('bg-white');
-            });
-
-            const activeBtn = document.getElementById(`btn-${type}`);
-            if(activeBtn) {
-                activeBtn.classList.add('bg-blush', 'shadow-sm');
-                activeBtn.classList.remove('bg-white');
-            }
-
-            // Update content
-            const data = skinData[type];
-            if(data) {
-                document.getElementById('preview-title').innerText = data.title;
-                document.getElementById('preview-ingredients').innerText = data.ingredients;
-                document.getElementById('preview-am').innerText = data.am;
-                document.getElementById('preview-avoid').innerText = data.avoid;
-            }
-        }
-    </script>
 </body>
 </html>
-
-    }
