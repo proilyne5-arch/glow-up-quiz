@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -69,11 +69,11 @@
   <!-- CONTENU PRINCIPAL DE LA LANDING PAGE -->
   <main class="space-y-20 lg:space-y-32 pb-20">
     
-    <!-- HERO SECTION -->
+    <!-- HERO SECTION & QUIZ -->
     <section id="optin-section" class="pt-6 pb-12 px-4 sm:px-6 max-w-7xl mx-auto">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
         
-        <!-- TEXTES D'ACCUEIL -->
+        <!-- TEXTES D'ACCUEIL PROFESSIONNELS -->
         <div class="lg:col-span-6 space-y-6 text-center lg:text-left">
           <span class="inline-block px-3 py-1 bg-soft-rose/50 text-bronze rounded-full text-xs font-semibold tracking-wider uppercase">
             Interactive Skin Diagnostic
@@ -82,15 +82,20 @@
             Discover Your Personalized Skincare Routine
           </h1>
           <p class="text-warm-gray text-sm sm:text-base max-w-xl mx-auto lg:mx-0">
-            Take our 1-minute quiz to analyze your skin needs and unlock your tailored routine, product guidance, plus a free 30-Day Routine Tracker PDF.
+            Take our 1-minute quiz to analyze your skin needs and unlock your tailored routine, expert product guidance, plus a free 30-Day Routine Tracker PDF designed for glowing, healthy skin.
           </p>
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs text-warm-gray pt-2">
+            <span class="inline-flex items-center gap-1.5"><i data-lucide="check" class="w-4 h-4 text-bronze"></i> 100% Customized</span>
+            <span class="inline-flex items-center gap-1.5"><i data-lucide="check" class="w-4 h-4 text-bronze"></i> Instant Results</span>
+            <span class="inline-flex items-center gap-1.5"><i data-lucide="check" class="w-4 h-4 text-bronze"></i> Free Tracker Included</span>
+          </div>
         </div>
 
-        <!-- CADRE DU QUIZ ET DE LA MAQUETTE TABLETTE -->
+        <!-- CADRE DU QUIZ (TABLETTE) -->
         <div id="quiz-card-wrapper" class="lg:col-span-6 flex justify-center">
           <div class="w-full max-w-md bg-cream rounded-[1.75rem] p-5 space-y-4 text-bronze border border-soft-rose/50 shadow-xl">
             
-            <!-- EN-TÊTE DU QUIZ (Barre de progression) -->
+            <!-- EN-TÊTE DU QUIZ -->
             <div id="quiz-header" class="border-b border-soft-rose/60 pb-3">
               <span class="text-[10px] font-bold tracking-widest uppercase text-warm-gray block">THE PRETTY PLAN HUB</span>
               <h2 class="font-serif-title text-lg font-bold text-bronze leading-tight">Glow Up Skin Diagnostic</h2>
@@ -103,7 +108,7 @@
               </div>
             </div>
 
-            <!-- ÉCRAN DU QUIZ (QUESTIONS ET BOUTONS TACTILES) -->
+            <!-- ÉCRAN DU QUIZ (QUESTIONS & BOUTONS TACTILES) -->
             <div id="quiz-screen" class="space-y-4">
               <div class="bg-white p-4 rounded-xl border border-soft-rose/40 shadow-sm space-y-3">
                 <p id="question-text" class="text-sm font-bold text-bronze">Question 1: What is your primary skin goal?</p>
@@ -111,7 +116,7 @@
               </div>
             </div>
 
-            <!-- ÉCRAN DE RÉSULTATS & MAILERLITE CONNECTÉ -->
+            <!-- ÉCRAN DE RÉSULTATS & FORMULAIRE MAILERLITE -->
             <div id="results-screen" class="space-y-4 text-center">
               <div class="bg-white p-5 rounded-xl border border-soft-rose/40 shadow-sm space-y-3">
                 <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-soft-rose/40 text-bronze mb-1">
@@ -122,7 +127,7 @@
                   Enter your details below to unlock your custom breakdown and receive your <strong>Free 30-Day Routine Tracker PDF</strong> immediately in your inbox.
                 </p>
 
-                <!-- FORMULAIRE MAILERLITE VÔTRE INTEGRÉ -->
+                <!-- FORMULAIRE MAILERLITE -->
                 <div class="ml-embedded" data-form="lVGT3c"></div>
               </div>
             </div>
@@ -133,9 +138,83 @@
       </div>
     </section>
 
+    <!-- SECTION APERÇU / PREVIEWS (LES BÉNÉFICES DU PLAN) -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto space-y-3 mb-12">
+        <h2 class="text-2xl sm:text-3xl font-bold text-bronze">What's Inside Your Glow Up Plan?</h2>
+        <p class="text-warm-gray text-sm">Everything you need to transform your skincare journey from guesswork to pure glow.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Carte 1 -->
+        <div class="bg-white p-6 rounded-2xl border border-soft-rose/40 shadow-sm space-y-3">
+          <div class="w-10 h-10 rounded-xl bg-cream flex items-center justify-center text-bronze font-bold">01</div>
+          <h3 class="font-bold text-base text-bronze">Tailored AM/PM Routine</h3>
+          <p class="text-xs text-warm-gray leading-relaxed">Stop wasting money on random products. Get a step-by-step morning and evening regimen matched precisely to your skin barrier needs.</p>
+        </div>
+        <!-- Carte 2 -->
+        <div class="bg-white p-6 rounded-2xl border border-soft-rose/40 shadow-sm space-y-3">
+          <div class="w-10 h-10 rounded-xl bg-cream flex items-center justify-center text-bronze font-bold">02</div>
+          <h3 class="font-bold text-base text-bronze">Ingredient Masterclass</h3>
+          <p class="text-xs text-warm-gray leading-relaxed">Learn which active ingredients work harmoniously for your specific skin goals, and which ones to avoid mixing together.</p>
+        </div>
+        <!-- Carte 3 -->
+        <div class="bg-white p-6 rounded-2xl border border-soft-rose/40 shadow-sm space-y-3">
+          <div class="w-10 h-10 rounded-xl bg-cream flex items-center justify-center text-bronze font-bold">03</div>
+          <h3 class="font-bold text-base text-bronze">30-Day Tracker PDF</h3>
+          <p class="text-xs text-warm-gray leading-relaxed">Build lasting habits with our beautifully structured daily tracker sheet to monitor your skin's transformation over four weeks.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION FAQ (FOIRE AUX QUESTIONS) -->
+    <section class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="text-center space-y-3 mb-10">
+        <h2 class="text-2xl sm:text-3xl font-bold text-bronze">Frequently Asked Questions</h2>
+        <p class="text-warm-gray text-sm">Got questions? We've got answers.</p>
+      </div>
+
+      <div class="space-y-4">
+        <!-- Question 1 -->
+        <div class="bg-white p-5 rounded-xl border border-soft-rose/40 shadow-sm space-y-2">
+          <h3 class="font-bold text-sm text-bronze flex items-center justify-content">
+            <span class="mr-2">Q:</span> Is the skincare diagnostic quiz really free?
+          </h3>
+          <p class="text-xs text-warm-gray leading-relaxed pl-5">
+            Yes, absolutely! Our interactive skin diagnostic is 100% free. Once completed, your tailored recommendations and the free routine tracker are sent straight to your email.
+          </p>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="bg-white p-5 rounded-xl border border-soft-rose/40 shadow-sm space-y-2">
+          <h3 class="font-bold text-sm text-bronze flex items-center justify-content">
+            <span class="mr-2">Q:</span> When will I receive my 30-Day Routine Tracker?
+          </h3>
+          <p class="text-xs text-warm-gray leading-relaxed pl-5">
+            Instantly! As soon as you submit your details at the end of the quiz, the PDF tracker will land directly in your inbox within seconds.
+          </p>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="bg-white p-5 rounded-xl border border-soft-rose/40 shadow-sm space-y-2">
+          <h3 class="font-bold text-sm text-bronze flex items-center justify-content">
+            <span class="mr-2">Q:</span> Can I do this quiz on my mobile phone or tablet?
+          </h3>
+          <p class="text-xs text-warm-gray leading-relaxed pl-5">
+            Yes! Our page is fully responsive and optimized for all devices, ensuring a smooth, touch-friendly experience whether you are on an iPhone, Android, or tablet.
+          </p>
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <!-- SCRIPT UNIVERSEL MAILERLITE AVEC VOTRE ACCOUNT ID -->
+  <!-- FOOTER -->
+  <footer class="bg-sand/60 border-t border-soft-rose/40 py-8 text-center text-xs text-warm-gray">
+    <p>&copy; 2026 The Pretty Plan Hub. All rights reserved.</p>
+  </footer>
+
+  <!-- SCRIPT UNIVERSEL MAILERLITE -->
   <script>
     (function(w,d,e,u,f,m,n){w['MailerLiteObject']=f;w[f]=w[f]||function(){
     (w[f].q=w[f].q||[]).push(arguments)},w[f].l=1*new Date();m=d.createElement(e),
@@ -145,7 +224,7 @@
     ml('account', '2260297');
   </script>
 
-  <!-- SCRIPT DU QUIZ SÉCURISÉ TABLETTE/MOBILE -->
+  <!-- SCRIPT DU QUIZ INTERACTIF & TACTILE -->
   <script>
     lucide.createIcons();
 
@@ -225,7 +304,7 @@
         const resultsScreen = document.getElementById('results-screen');
         resultsScreen.classList.add('active');
 
-        // Déclencher le chargement du formulaire MailerLite à la fin du quiz
+        // Déclencher le formulaire MailerLite
         if (typeof ml === 'function') {
           ml('show', 'lVGT3c', true);
         }
